@@ -1,7 +1,9 @@
 <% content_for :sidebar do %>
+  <%= render :partial => '/conversatio/blogs/archive' %>
+<% end %>
+
+<% content_for :sidebar_member do %>
   <%= render :partial => 'member/conversatio/blogs/manage', :locals => {:blog => @blog} %>
-  <br/>
-  <%= render :partial => 'conversatio/blogs/archive' %>
 <% end %>
 
 <h1><%= @blog.title -%> <%=link_to image_tag ('/tog_core/images/ico/rss.gif', :alt => 'sindicate'), formatted_conversatio_blog_url(@blog, :atom), :class => 'rss'%></h1>

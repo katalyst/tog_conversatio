@@ -53,9 +53,11 @@
   </tbody>
 </table>
 
-
 <% content_for :sidebar do %>
-  <%= render :partial => 'member/conversatio/blogs/manage', :locals => {:blog => @blog} %>
-  <br/>  
-  <%= render :partial => 'conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
+  <%= render :partial => '/conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
 <% end %>
+
+<% content_for :sidebar_member do %>
+  <%= render :partial => 'member/conversatio/blogs/manage', :locals => {:blog => @blog} %>
+<% end %>
+

@@ -1,9 +1,11 @@
 <% content_for :sidebar do %>
-  <%= render :partial => 'member/conversatio/blogs/manage', :locals => {:blog => @blog} %>
-  <br/>  
   <%= render :partial => '/conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
   <br/>
-  <%= render :partial => 'conversatio/blogs/archive' %>
+  <%= render :partial => '/conversatio/blogs/archive' %>
+<% end %>
+
+<% content_for :sidebar_member do %>
+  <%= render :partial => 'member/conversatio/blogs/manage', :locals => {:blog => @blog} %>
 <% end %>
 
 <% include_autodiscovery(:atom, formatted_conversatio_blog_url(@blog, :atom), :title => @blog.title) %>

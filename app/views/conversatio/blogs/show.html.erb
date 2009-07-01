@@ -34,9 +34,11 @@
 <%end%>
 
 <% content_for :sidebar do %>
+<%= render :partial => 'tag_cloud_single_blog', :locals => { :blog => @blog } %>
+<br/>
+<%= render :partial => 'archive' %>
+<% end %>
+
+<% content_for :sidebar_member do %>
   <%= render :partial => 'member/conversatio/blogs/manage', :locals => {:blog => @blog} %>
-  <br/>  
-  <%= render :partial => 'tag_cloud_single_blog', :locals => { :blog => @blog } %>
-  <br/>
-  <%= render :partial => 'archive' %>
 <% end %>

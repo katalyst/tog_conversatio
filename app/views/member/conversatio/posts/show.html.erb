@@ -12,8 +12,8 @@
   <tbody>
     <% for comment in @comments %>
     <tr<%= cycle('',' class="pair"') -%>>
-      <td><%= comment.user.login %></td>
-      <td><%= comment.comment %></td>
+      <td><%= !comment.user.nil? ? comment.user.login : "Anonymous" %></td>
+      <td><%= h comment.comment %></td>
       <td nowrap="nowrap"><%= comment.created_at %></td>
       <td><%= comment.spam? %></td>
       <td><%= link_to I18n.t('tog_conversatio.views.member.posts.show.remove'), member_comment_remove_path(comment), {:confirm => I18n.t('tog_conversatio.views.member.posts.show.remove_confirm')} -%></td>
@@ -28,7 +28,10 @@
 </table>
 
 <% content_for :sidebar do %>
-  <%= render :partial => 'member/conversatio/blogs/manage', :locals => {:blog => @blog} %>
-  <br/>  
-  <%= render :partial => 'conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
+  <%= render :partial => '/conversatio/blogs/tag_cloud_single_blog', :locals => { :blog => @blog } %>
 <% end %>
+
+<% content_for :sidebar_member do %>
+  <%= render :partial => 'member/conversatio/blogs/manage', :locals => {:blog => @blog} %>
+<% end %>
+
