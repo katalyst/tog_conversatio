@@ -30,9 +30,9 @@
 <%= will_paginate @blogs %>
 
 <% content_for :sidebar do %>
-
   <%= render :partial => 'tag_cloud_blogs' %>
+<% end %>
 
+<% content_for :sidebar_member do %>
   <%= render :partial => 'member/conversatio/blogs/blogs' %>
-  
 <% end %>

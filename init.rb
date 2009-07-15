@@ -8,8 +8,8 @@ Dir[File.dirname(__FILE__) + '/locale/**/*.yml'].each do |file|
 end
 
 Tog::Interface.sections(:site).add "Blogs", "/blogs"
-
 Tog::Interface.sections(:member).add "Blogs", "/member/conversatio/blogs"
+Tog::Interface.sections(:admin).add "Blogs", "/admin/blogs"
 
 Tog::Plugins.helpers Conversatio::PostsHelper
 Tog::Plugins.helpers Conversatio::BlogsHelper

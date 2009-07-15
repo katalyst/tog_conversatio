@@ -2,6 +2,10 @@
   <li>
     <%= I18n.t('tog_conversatio.views.member.blogs.manage.title', :blog_title => blog.title) %>
     <ul>
+      <% if defined? post %>
+      <li><%= link_to 'Edit post', edit_member_conversatio_blog_post_path(blog, post) %></li>
+      <li><%= link_to 'Delete post', member_conversatio_blog_post_path(blog, post), :method => :delete, :confirm => 'Are you sure you want to delete your post?' %></li>
+      <% end %>
       <li><%= link_to I18n.t('tog_conversatio.views.member.blogs.manage.edit_blog'), edit_member_conversatio_blog_path(blog) %></li>
       <li><%= link_to I18n.t('tog_conversatio.views.member.blogs.manage.editors'), member_conversatio_blog_bloggerships_url(blog) %></li>
       <li><%= link_to I18n.t('tog_conversatio.views.member.blogs.manage.posts'), member_conversatio_blog_posts_path(blog) %></li>
