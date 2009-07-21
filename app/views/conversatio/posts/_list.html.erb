@@ -1,0 +1,15 @@
+<% if @posts.empty? %>
+  <p>There are no posts to display.</p>
+<% else %>
+  <div class="portlet portletB">
+      <div class="portlet_content"> 
+          <ul>
+              <% @posts.each do |post| %>
+                <%= render :partial => '/conversatio/posts/list_detail', :locals => { :blog => post.blog, :post => post } %>
+              <% end %>
+          </ul>
+      </div>    
+  </div>
+
+  <%= will_paginate @posts %>
+<% end %>
